@@ -43,7 +43,6 @@ describe("ArtNFT", function () {
 
         it("Should not exceed the max supply", async function () {
             it("Should not exceed the max supply", async function () {
-                // Получаем максимальное предложение и текущее общее количество токенов как BigNumber
                 console.log(artNFT);
                 const maxSupply = await artNFT.MAX_SUPPLY();
                 const initialSupply = await artNFT.totalSupply();
@@ -56,7 +55,6 @@ describe("ArtNFT", function () {
                         const mintThisTransaction = (i === numTransactions - 1 && remainingMints.mod(mintAmount).gt(0)) ? remainingMints.mod(mintAmount) : mintAmount;
                         const valueToSend = MINT_PRICE.mul(mintThisTransaction);
 
-                        // Выполняем майнинг
                         await artNFT.connect(addr1).mint(mintThisTransaction.toNumber(), { value: valueToSend });
                     }
                 }
